@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jn.rest.mapper.BrdMapper">
+
+<select id="getList" resultType="BrdVo">
+	SELECT
+    	bd_id,
+    	bd_title,
+    	bd_cont,
+    	bd_writer,
+    	bd_img
+	  FROM jn_brd
+</select>
+	
+<select id="getBrd" parameterType="int" resultType="BrdVo">
+	SELECT
+    	bd_id,
+    	bd_title,
+    	bd_cont,
+    	bd_writer,
+    	bd_img
+	  FROM jn_brd
+	WHERE bd_id = #{bdId}
+</select>
+
+<insert id="insertBrd" parameterType="BrdVo">
+	INSERT INTO jn_brd (
+    bd_id,
+    bd_title,
+    bd_cont,
+    bd_writer,
+    bd_img
+) VALUES (
+    jn_seq.nextval,
+    #{bdTitle},
+    #{bdCont},
+    #{bdWriter},
+    #{bdImg}
+)
+</insert>
+<update id="updateBrd" parameterType="BrdVo">
+	UPDATE jn_brd
+	  SET 
+	  	bd_title = #{bdTitle},
+    	bd_cont = #{bdCont},
+    	bd_writer = #{bdWriter},
+    	bd_img = #{bdImg}
+	WHERE
+        bd_id = #{bdId}
+</update>
+
+<delete id="deleteBrd">
+	DELETE FROM jn_brd
+	  WHERE bd_id = #{bdId}
+</delete>
+
+</mapper>
