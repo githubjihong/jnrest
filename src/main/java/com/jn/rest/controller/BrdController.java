@@ -28,7 +28,7 @@ import com.jn.rest.vo.MaguVo;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@CrossOrigin("*")	//모두에게 풀어주겠음... //http://localhost:8282 특정 IP만 풀어주기
+@CrossOrigin("*")	//모두에게 풀어주겠음(수정)... //http://localhost:8282 특정 IP만 풀어주기
 @RestController	//@ResponseBody 포함됨
 @RequestMapping("/api")
 public class BrdController {
